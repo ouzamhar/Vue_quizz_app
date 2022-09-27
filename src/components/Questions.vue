@@ -9,25 +9,27 @@
         {{ questionsCount }} out of {{ questions.length }} questions answered
       </div>
     </div>
-    <div
-      class="single-question"
-      v-for="(question, qIndex) in questions"
-      :key="question.q"
-      v-show="questionsCount === qIndex"
-    >
-      <div class="question">
-        {{ question.q }}
-      </div>
+    <transition-group name="fade">
       <div
-        class="answers"
-        v-for="answer in question.answers"
-        :key="answer.text"
+        class="single-question"
+        v-for="(question, qIndex) in questions"
+        :key="question.q"
+        v-show="questionsCount === qIndex"
       >
-        <div class="answer" @click.prevent="answered(answer.is_correct)">
-          {{ answer.text }}
+        <div class="question">
+          {{ question.q }}
+        </div>
+        <div
+          class="answers"
+          v-for="answer in question.answers"
+          :key="answer.text"
+        >
+          <div class="answer" @click.prevent="answered(answer.is_correct)">
+            {{ answer.text }}
+          </div>
         </div>
       </div>
-    </div>
+    </transition-group>
   </div>
 </template>
 
