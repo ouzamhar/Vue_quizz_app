@@ -1,8 +1,5 @@
 # quizz-app
 
-This is my first hands on Vue project.
-
-The App has two components: the questions and the result. Only when the user finishes answering all the questions the result is diplayed.
 
 ## Customize configuration
 
